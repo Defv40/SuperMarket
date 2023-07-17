@@ -6,4 +6,6 @@
 
 1. git clone https://github.com/Defv40/SuperMarket.git
 2. code . 
-3. npm install
+3. cd client
+4. npm install
+5. cd .. 
