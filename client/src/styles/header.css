@@ -1,0 +1,28 @@
+.header{
+    display: flex;
+    justify-content: end;
+    font-weight: 500;
+    font-family: Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+}
+.nav{
+  
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+.nav > ul{
+    display: flex;
+    gap: 20px;
+}
+.info-links a{
+    color:  #6f7c89;
+}
+.search-links a, .helper-links a{
+    color: black;
+}
+a:hover{
+    color: rgb(145, 158, 206);   
+}
