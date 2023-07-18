@@ -1,0 +1,51 @@
+.main{
+
+}
+
+.cards-title{
+
+}
+
+.cards-without-content{
+
+}
+
+.card{
+   
+    width: 200px;
+}
+img{
+    border-radius: 15px;
+}
+
+.cards-title{
+    font-size: 30px;
+   
+}
+
+.cards, .cards-without-content{
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+    flex-flow: row wrap;
+    
+}
+
+.container{
+    padding: 20px 0;
+}
+
+.card-cost{
+
+}
+
+.big-img{
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+}
+
+.head-container{
+    display: flex;
+    
+}
