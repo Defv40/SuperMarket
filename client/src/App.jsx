@@ -1,19 +1,20 @@
 import { useState } from 'react'
-import {Menu} from 'antd'
+import {Modal} from 'antd'
 import Header from './components/Header'
 import Main from './components/Main'
 import './styles/app.css'
 import './styles/index.css'
+import Footer from './components/Footer'
 
 
 function App() {
-  const [count, setCount] = useState(0)
-  const items = [
-    {label: 'Home'},
-    {label: 'Home'},
-    {label: 'Home'},
-    {label: 'Home'},
-  ]
+  // const [open, setModalOpen] = useState(false);
+  // const items = [
+  //   {label: 'Home'},
+  //   {label: 'Home'},
+  //   {label: 'Home'},
+  //   {label: 'Home'},
+  // ]
   return (
     <div className='App'>
       <Header/>
@@ -21,6 +22,7 @@ function App() {
       {/* <Menu items={items} className='sidebar-nav' style={{width: '300px'}}>
 
       </Menu> */}
+      <Footer></Footer>
     </div>
   )
 }

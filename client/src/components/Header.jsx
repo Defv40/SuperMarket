@@ -1,25 +1,29 @@
+import { useState } from 'react';
 import '../styles/header.css'
-import { Button, Input, Select, Space, } from 'antd';
+import { Button, Input, Modal, Space} from 'antd';
 const Header = () =>{
+    const[open, setModalOpen] = useState(false);
+    const[modalAuthOpen, setModalAuthOpen] = useState(false);
+    const [auth, setAuth] = useState(false);
     const { Search } = Input;
-    const options = [
-        {
-          value: 'zhejiang',
-          label: 'Zhejiang',
-        },
-        {
-          value: 'jiangsu',
-          label: 'Jiangsu',
-        },
-      ];
-
+    // const options = [
+    //     {
+    //       value: 'zhejiang',
+    //       label: 'Zhejiang',
+    //     },
+    //     {
+    //       value: 'jiangsu',
+    //       label: 'Jiangsu',
+    //     },
+    //   ];
+   
     const listSearchElem = <div className='search'><span>Везде</span><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="currentColor" d="m4 6 4 5 4-5H4Z"></path></svg></span></div>;
     return(
         <header className='header'>
             <nav className='nav'>
                 <ul className='info-links'>
                     <ul>
-                        <li><span className='currency'>Rub</span></li>
+                        <li><span className='currency' onClick={() => {setModalOpen(!open)}}>Rub</span></li>
                         <li><span className='location'>Пункт Ozon Ул.Королева 22.а</span></li>
                     </ul>
                     
@@ -41,9 +45,12 @@ const Header = () =>{
                     />
                         <ul>
                             <li>
-                                <a href="http://vk.com" className='info-link'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="currentColor" d="M11.132 3.504a1 1 0 0 1 1.736 0l3.35 5.863 5.075-5.074a1 1 0 0 1 1.698.845l-1.667 12a1 1 0 0 1-.99.862H10a1.03 1.03 0 0 1-.077-.003l-.09.003H3.667a1 1 0 0 1-.99-.862l-1.668-12a1 1 0 0 1 1.698-.845l5.074 5.074 3.35-5.863ZM6.003 16h3.83l.09.003A1.03 1.03 0 0 1 10 16h9.463l1.136-8.185-3.892 3.892a1 1 0 0 1-1.575-.21L12 6.015l-3.132 5.48a1 1 0 0 1-1.575.211L3.4 7.815 4.537 16h1.466ZM4 20a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"></path></svg>
-                                    <span>Герман</span>
+                                <a href="#" className='info-link'>
+
+                                    {auth 
+                                    ? <div onClick={() => null}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="currentColor" d="M11.132 3.504a1 1 0 0 1 1.736 0l3.35 5.863 5.075-5.074a1 1 0 0 1 1.698.845l-1.667 12a1 1 0 0 1-.99.862H10a1.03 1.03 0 0 1-.077-.003l-.09.003H3.667a1 1 0 0 1-.99-.862l-1.668-12a1 1 0 0 1 1.698-.845l5.074 5.074 3.35-5.863ZM6.003 16h3.83l.09.003A1.03 1.03 0 0 1 10 16h9.463l1.136-8.185-3.892 3.892a1 1 0 0 1-1.575-.21L12 6.015l-3.132 5.48a1 1 0 0 1-1.575.211L3.4 7.815 4.537 16h1.466ZM4 20a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z"></path></svg><span>Герман</span></div>
+                                    : <div onClick={() => setModalAuthOpen(!modalAuthOpen)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path fill="currentColor" d="M8 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-8.3 4.286c.016.015.185.165.5.323.376.187.971.391 1.8.391.829 0 1.425-.204 1.8-.391.175-.088.355-.19.5-.323a1 1 0 0 1 1.407 1.421C15.587 16.827 14.357 18 12 18c-2.358 0-3.587-1.173-3.707-1.293A1 1 0 0 1 9.7 15.286Z"></path><path fill="currentColor" d="M11 2a1 1 0 0 1 1-1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12a11 11 0 0 1 6.23-9.914 1 1 0 0 1 1.36.524c.292.72.69 1.565 1.362 2.233C10.592 5.481 11.524 6 13 6a1 1 0 1 1 0 2c-2.024 0-3.458-.743-4.459-1.74-.6-.596-1.027-1.267-1.34-1.875A9 9 0 1 0 12 3a1 1 0 0 1-1.001-1Z"></path></svg><span>Войдите</span></div>
+                                    }
                                 </a>
                             </li>
                             <li>
@@ -83,7 +90,45 @@ const Header = () =>{
                 </ul>
                
             </nav>
+            <Modal
+            title="Выберите валюту"
+            centered
+            open={open}
+            onOk={() => setModalOpen(false)}
+            onCancel={() => setModalOpen(false)}
+            cancelText="Отмена"
+            okText="Подтвердить"
+        >
+            <Space>
+                <Button type='dashed' >EUR</Button>
+                <Button type='dashed' >USD</Button>
+                <Button type='dashed' >CNY</Button>
+                <Button type='primary' >Rub</Button>
+            </Space>
+         
+            
+        </Modal>
+
+        <Modal
+            title=""
+            centered
+            open={modalAuthOpen}
+            onOk={() => setModalAuthOpen(false)}
+            onCancel={() => setModalAuthOpen(false)}
+            cancelText="Отмена"
+            okText="Подтвердить"
+        >
+            <Space>
+                <h1>Выберите способ авторизации</h1>
+                <Button type='dashed' onClick={() => setAuth(false)}>Вк</Button>
+                <Button type='dashed' onClick={() => setAuth(true)}>Телефон</Button>
+               
+            </Space>
+         
+            
+        </Modal>
         </header>
+        
     )
 }
 
