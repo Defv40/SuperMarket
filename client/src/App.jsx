@@ -5,7 +5,7 @@ import Main from './components/Main'
 import './styles/app.css'
 import './styles/index.css'
 import Footer from './components/Footer'
-
+import '../src/styles/vk.api.css';
 
 function App() {
   // const [open, setModalOpen] = useState(false);
