@@ -1,6 +1,11 @@
 import '../styles/main.css'
-
-const Main = () =>{
+import axios from 'axios';
+const  Main = () =>{
+    const uri = `http://localhost:8080/api/main/offers`;
+    axios.get(uri).then((data) => console.log(data.data.data));
+    // fetch(uri)
+    //     .then(res => res.json())
+    //     .then(data => console.log(data));
     return(
         <main className='main'>
             <div className='big-img head-container container'>
@@ -25,7 +30,7 @@ const Main = () =>{
                 </div>
                 
             </div>
-            
+            {/* Add Something */}
 
             <h2 className='cards-title'>Лучшие предложения!</h2>
             <div className="cards">
