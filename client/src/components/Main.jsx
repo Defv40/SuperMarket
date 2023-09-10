@@ -30,7 +30,7 @@ const  Main = () =>{
                 </div>
                 
             </div>
-            
+            {/* Add Something */}
 
             <h2 className='cards-title'>Лучшие предложения!</h2>
             <div className="cards">
